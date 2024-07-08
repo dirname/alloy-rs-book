@@ -1,6 +1,6 @@
-# Connecting to a blockchain
+# 连接区块链
 
-- [Setting up a Provider](setting-up-a-provider.md)
-- [Creating an HTTP provider](http-provider.md)
-- [Creating a WS provider](ws-provider.md)
-- [Creating an IPC provider](ipc-provider.md)
+- [设置 Provider](setting-up-a-provider.md)
+- [创建 HTTP provider](http-provider.md)
+- [创建 WS provider](ws-provider.md)
+- [创建 IPC provider](ipc-provider.md)

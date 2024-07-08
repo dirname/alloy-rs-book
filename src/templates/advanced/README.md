@@ -1,3 +1,3 @@
-## Advanced
+## 进阶
 
-- [Using `AnyNetwork`](any_network.md)
+- [使用 `AnyNetwork`](any_network.md)

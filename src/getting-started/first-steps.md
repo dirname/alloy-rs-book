@@ -1,22 +1,22 @@
-## First steps
+## 起步
 
-Alloy allows applications to connect the blockchain using providers. Providers act as an interface between applications and an Ethereum node, allowing you to send requests and receive responses via JSON-RPC messages.
+Alloy 允许应用程序通过使用提供者（providers）来连接区块链。提供者充当应用程序和以太坊节点之间的接口，使您能够通过 JSON-RPC 消息发送请求和接收响应。
 
-Some common actions you can perform using a provider include:
+使用提供者可以执行的一些常见操作包括：
 
-- Getting the current block number
-- Getting the balance of an Ethereum address
-- Sending a transaction to the blockchain
-- Calling a smart contract function
-- Subscribe logs and smart contract events
-- Getting the transaction history of an address
+- 获取当前区块号
+- 获取以太坊地址的余额
+- 向区块链发送交易
+- 调用智能合约函数
+- 订阅日志和智能合约事件
+- 获取地址的交易历史记录
 
-After [installing](./installation.md) `alloy` let's create an example of using the HTTP provider and fetching the latest block number.
+在[安装](./installation.md)了 `alloy` 之后，让我们创建一个使用 HTTP 提供者并获取最新区块号的示例。
 
-Install [`tokio`](https://crates.io/crates/tokio) and [`eyre`](https://crates.io/crates/eyre) as dependencies and define the body as follows:
+安装 [`tokio`](https://crates.io/crates/tokio) 和 [`eyre`](https://crates.io/crates/eyre) 作为依赖项，并按如下定义主体：
 
 ```rust,ignore
-//! Example of creating an HTTP provider using the `on_http` method on the `ProviderBuilder`.
+//! 使用 `ProviderBuilder` 的 `on_http` 方法创建 HTTP 提供者的示例。
 
 use alloy::providers::{Provider, ProviderBuilder};
 use eyre::Result;
@@ -29,24 +29,24 @@ async fn main() -> Result<()> {
 }
 ```
 
-Next, add the following section to the body to create a provider with HTTP transport:
+接下来，向主体中添加以下部分，以使用 HTTP 传输创建提供者：
 
 ```rust,ignore
-// Set up the HTTP transport which is consumed by the RPC client.
+// 设置由 RPC 客户端使用的 HTTP 传输。
 let rpc_url = "https://eth.merkle.io".parse()?;
 
-// Create a provider with the HTTP transport using the `reqwest` crate.
+// 使用 `reqwest` crate 创建带有 HTTP 传输的提供者。
 let provider = ProviderBuilder::new().on_http(rpc_url);
 ```
 
-Finally we fetch the latest block number using the provider:
+最后，我们使用提供者获取最新的区块号：
 
 ```rust,ignore
-// Get latest block number.
+// 获取最新区块号。
 let latest_block = provider.get_block_number().await?;
 
-// Print the block number.
+// 打印区块号。
 println!("Latest block number: {latest_block}");
 ```
 
-The complete and runnable example can be found [here](https://github.com/alloy-rs/examples/blob/main/examples/providers/examples/http.rs), one of the [many runnable examples of Alloy](https://github.com/alloy-rs/examples/blob/main/README.md#overview) to explore.
+可以在[这里](https://github.com/alloy-rs/examples/blob/main/examples/providers/examples/http.rs)找到完整且可运行的示例，这是[许多 Alloy 可运行示例](https://github.com/alloy-rs/examples/blob/main/README.md#overview)中的一个，供您探索。

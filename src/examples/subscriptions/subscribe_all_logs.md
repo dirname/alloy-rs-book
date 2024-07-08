@@ -3,17 +3,17 @@
 <!-- EDIT OR CREATE THIS TEMPLATE INSTEAD: ./src/templates/subscriptions/subscribe_all_logs.md -->
 <!-- LATEST UPDATE: https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620 -->
 
-## Example: `subscribe_all_logs`
+## 示例: `subscribe_all_logs`
 
-### Example
+### 示例
 
-To run this example:
+要运行这个示例:
 
-- Clone the [examples](https://github.com/alloy-rs/examples) repository: `git clone git@github.com:alloy-rs/examples.git`
-- Run: `cargo run --example subscribe_all_logs`
+- 克隆 [examples](https://github.com/alloy-rs/examples) 仓库: `git clone git@github.com:alloy-rs/examples.git`
+- 运行: `cargo run --example subscribe_all_logs`
 
 ```rust,ignore
 {{#include ../../../lib/examples/examples/subscriptions/examples/subscribe_all_logs.rs}}
 ```
 
-Find the source code on Github [here](https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620/examples/subscriptions/examples/subscribe_all_logs.rs).
+在 Github 上查看源代码 [这里](https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620/examples/subscriptions/examples/subscribe_all_logs.rs)。

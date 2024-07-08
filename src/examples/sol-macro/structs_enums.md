@@ -5,15 +5,15 @@
 
 ## Example: `structs_enums`
 
-### Example
+### 示例
 
-To run this example:
+要运行此示例：
 
-- Clone the [examples](https://github.com/alloy-rs/examples) repository: `git clone git@github.com:alloy-rs/examples.git`
-- Run: `cargo run --example structs_enums`
+- 克隆 [examples](https://github.com/alloy-rs/examples) 仓库：`git clone git@github.com:alloy-rs/examples.git`
+- 运行：`cargo run --example structs_enums`
 
 ```rust,ignore
 {{#include ../../../lib/examples/examples/sol-macro/examples/structs_enums.rs}}
 ```
 
-Find the source code on Github [here](https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620/examples/sol-macro/examples/structs_enums.rs).
+在 Github 上找到源代码 [here](https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620/examples/sol-macro/examples/structs_enums.rs).

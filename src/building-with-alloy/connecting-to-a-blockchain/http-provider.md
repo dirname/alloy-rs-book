@@ -1,40 +1,40 @@
 ## HTTP `Provider`
 
-The `Http` provider establishes an HTTP connection with a node, allowing you to send JSON-RPC requests to the node to fetch data, simulate calls, send transactions and much more.
+`Http` 提供者建立与节点的 HTTP 连接，允许你发送 JSON-RPC 请求到节点以获取数据、模拟调用、发送交易等等。
 
-### Initializing an Http Provider
+### 初始化 Http 提供者
 
-The recommended way of initializing a `Http` provider is by using the [`on_http`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html#method.on_http) method on the [`ProviderBuilder`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html).
+推荐的初始化 `Http` 提供者的方法是使用 [`on_http`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html#method.on_http) 方法在 [`ProviderBuilder`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html) 上。
 
 ```rust,ignore
-//! Example of creating an HTTP provider using the `on_http` method on the `ProviderBuilder`.
+//! 使用 `ProviderBuilder` 上的 `on_http` 方法创建 HTTP 提供者的示例。
 
 use alloy::providers::{Provider, ProviderBuilder};
 use eyre::Result;
 
 #[tokio::main]
 async fn main() -> eyre::Result<()> {
-    // Set up the HTTP transport which is consumed by the RPC client.
+    // 设置由 RPC 客户端使用的 HTTP 传输。
     let rpc_url = "https://eth.merkle.io".parse()?;
 
-    // Create a provider with the HTTP transport using the `reqwest` crate.
+    // 使用 `reqwest` crate 创建一个带有 HTTP 传输的提供者。
     let provider = ProviderBuilder::new().on_http(rpc_url);
 
     Ok(())
 }
 ```
 
-An alternative way of initializing is to use the [`on_builtin`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html#method.on_builtin) method on the [`ProviderBuilder`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html). This method will automatically determine the connection type (`Http`, `Ws` or `Ipc`) depending on the format of the URL. This method is particularly useful if you need a boxed transport.
+另一种初始化方法是使用 [`on_builtin`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html#method.on_builtin) 方法在 [`ProviderBuilder`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html) 上。根据 URL 的格式，该方法会自动确定连接类型（`Http`、`Ws` 或 `Ipc`）。如果你需要一个装箱的传输方法，该方法特别有用。
 
 ```rust,ignore
-//! Example of creating an HTTP provider using the `on_builtin` method on the `ProviderBuilder`.
+//! 使用 `ProviderBuilder` 上的 `on_builtin` 方法创建 HTTP 提供者的示例。
 
 use alloy::providers::{Provider, ProviderBuilder};
 use eyre::Result;
 
 #[tokio::main]
 async fn main() -> eyre::Result<()> {
-    // Create a provider with the HTTP transport using the `reqwest` crate.
+    // 使用 `reqwest` crate 创建一个带有 HTTP 传输的提供者。
     let provider = ProviderBuilder::new().on_builtin("https://eth.merkle.io").await?;
 
     Ok(())

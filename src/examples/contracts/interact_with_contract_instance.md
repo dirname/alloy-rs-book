@@ -3,17 +3,17 @@
 <!-- EDIT OR CREATE THIS TEMPLATE INSTEAD: ./src/templates/contracts/interact_with_contract_instance.md -->
 <!-- LATEST UPDATE: https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620 -->
 
-## Example: `interact_with_contract_instance`
+## 示例: `interact_with_contract_instance`
 
-### Example
+### 示例
 
-To run this example:
+要运行这个示例：
 
-- Clone the [examples](https://github.com/alloy-rs/examples) repository: `git clone git@github.com:alloy-rs/examples.git`
-- Run: `cargo run --example interact_with_contract_instance`
+- 克隆 [examples](https://github.com/alloy-rs/examples) 代码库: `git clone git@github.com:alloy-rs/examples.git`
+- 运行: `cargo run --example interact_with_contract_instance`
 
 ```rust,ignore
 {{#include ../../../lib/examples/examples/contracts/examples/interact_with_contract_instance.rs}}
 ```
 
-Find the source code on Github [here](https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620/examples/contracts/examples/interact_with_contract_instance.rs).
+在 Github 上查看源代码 [这里](https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620/examples/contracts/examples/interact_with_contract_instance.rs).

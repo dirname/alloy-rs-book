@@ -3,17 +3,17 @@
 <!-- EDIT OR CREATE THIS TEMPLATE INSTEAD: ./src/templates/wallets/sign_permit_hash.md -->
 <!-- LATEST UPDATE: https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620 -->
 
-## Example: `sign_permit_hash`
+## 示例: `sign_permit_hash`
 
-### Example
+### 示例
 
-To run this example:
+要运行这个示例：
 
-- Clone the [examples](https://github.com/alloy-rs/examples) repository: `git clone git@github.com:alloy-rs/examples.git`
-- Run: `cargo run --example sign_permit_hash`
+- 克隆 [examples](https://github.com/alloy-rs/examples) 仓库: `git clone git@github.com:alloy-rs/examples.git`
+- 运行: `cargo run --example sign_permit_hash`
 
 ```rust,ignore
 {{#include ../../../lib/examples/examples/wallets/examples/sign_permit_hash.rs}}
 ```
 
-Find the source code on Github [here](https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620/examples/wallets/examples/sign_permit_hash.rs).
+在 Github 上查看源代码 [here](https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620/examples/wallets/examples/sign_permit_hash.rs).

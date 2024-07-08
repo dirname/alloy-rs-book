@@ -3,17 +3,17 @@
 <!-- EDIT OR CREATE THIS TEMPLATE INSTEAD: ./src/templates/fillers/nonce_filler.md -->
 <!-- LATEST UPDATE: https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620 -->
 
-## Example: `nonce_filler`
+## 示例: `nonce_filler`
 
-### Example
+### 示例
 
-To run this example:
+运行此示例:
 
-- Clone the [examples](https://github.com/alloy-rs/examples) repository: `git clone git@github.com:alloy-rs/examples.git`
-- Run: `cargo run --example nonce_filler`
+- 克隆 [examples](https://github.com/alloy-rs/examples) 仓库: `git clone git@github.com:alloy-rs/examples.git`
+- 运行: `cargo run --example nonce_filler`
 
 ```rust,ignore
 {{#include ../../../lib/examples/examples/fillers/examples/nonce_filler.rs}}
 ```
 
-Find the source code on Github [here](https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620/examples/fillers/examples/nonce_filler.rs).
+在 Github 上查看源代码 [此处](https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620/examples/fillers/examples/nonce_filler.rs).

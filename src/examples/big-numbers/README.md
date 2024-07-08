@@ -1,7 +1,7 @@
-## Big numbers
+## 大数
 
-- [Comparison and equivalence](comparison_equivalence.md)
-- [Conversion](conversion.md)
-- [Creating instances](create_instances.md)
-- [Math operations](math_operations.md)
-- [Math utilities](math_utilities.md)
+- [比较和等价](comparison_equivalence.md)
+- [类型转换](conversion.md)
+- [实例创建](create_instances.md)
+- [数学运算](math_operations.md)
+- [数学工具](math_utilities.md)

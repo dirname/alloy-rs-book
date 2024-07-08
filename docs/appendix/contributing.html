@@ -1,0 +1,392 @@
+<!DOCTYPE HTML>
+<html lang="en" class="ayu" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>帮助我们改进 Alloy - Alloy Book</title>
+
+
+        <!-- Custom HTML head -->
+                <meta name="twitter:card" content="summary">
+                <meta property="og:title" content="Alloy Book" />
+                <meta property="og:description" content="A book on all things Alloy" />
+                <meta property="og:image" content="https://raw.githubusercontent.com/alloy-rs/book/master/src/images/banner.jpg" />
+        <meta name="description" content="A book on all things Alloy">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">简介</a></li><li class="chapter-item affix "><li class="part-title">入门指南</li><li class="chapter-item "><a href="../getting-started/installation.html"><strong aria-hidden="true">1.</strong> 安装</a></li><li class="chapter-item "><a href="../getting-started/first-steps.html"><strong aria-hidden="true">2.</strong> Alloy 的第一步</a></li><li class="chapter-item affix "><li class="part-title">从 ethers-rs 迁移</li><li class="chapter-item "><a href="../migrating-from-ethers/reference.html"><strong aria-hidden="true">3.</strong> 参考</a></li><li class="chapter-item affix "><li class="part-title">使用 Alloy 构建</li><li class="chapter-item "><a href="../building-with-alloy/basic-building-blocks/index.html"><strong aria-hidden="true">4.</strong> 基础构建模块</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-with-alloy/basic-building-blocks/using-big-numbers.html"><strong aria-hidden="true">4.1.</strong> 使用大数</a></li><li class="chapter-item "><a href="../building-with-alloy/basic-building-blocks/basic-hash-and-address-types.html"><strong aria-hidden="true">4.2.</strong> 基本哈希和地址类型</a></li><li class="chapter-item "><a href="../building-with-alloy/basic-building-blocks/common-conversions.html"><strong aria-hidden="true">4.3.</strong> 常见转换</a></li><li class="chapter-item "><a href="../building-with-alloy/basic-building-blocks/creating-instances.html"><strong aria-hidden="true">4.4.</strong> 创建实例</a></li><li class="chapter-item "><a href="../building-with-alloy/basic-building-blocks/comparisons-and-equivalence.html"><strong aria-hidden="true">4.5.</strong> 比较与等价</a></li></ol></li><li class="chapter-item "><a href="../building-with-alloy/connecting-to-a-blockchain/index.html"><strong aria-hidden="true">5.</strong> 连接到区块链</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-with-alloy/connecting-to-a-blockchain/setting-up-a-provider.html"><strong aria-hidden="true">5.1.</strong> 设置提供者</a></li><li class="chapter-item "><a href="../building-with-alloy/connecting-to-a-blockchain/http-provider.html"><strong aria-hidden="true">5.2.</strong> 创建 HTTP 提供者</a></li><li class="chapter-item "><a href="../building-with-alloy/connecting-to-a-blockchain/ws-provider.html"><strong aria-hidden="true">5.3.</strong> 创建 WS 提供者</a></li><li class="chapter-item "><a href="../building-with-alloy/connecting-to-a-blockchain/ipc-provider.html"><strong aria-hidden="true">5.4.</strong> 创建 IPC 提供者</a></li></ol></li><li class="chapter-item "><a href="../building-with-alloy/understanding-fillers.html"><strong aria-hidden="true">6.</strong> 理解填充器</a></li><li class="chapter-item "><a href="../building-with-alloy/queries.html"><strong aria-hidden="true">7.</strong> 查询</a></li><li class="chapter-item "><a href="../building-with-alloy/transactions/index.html"><strong aria-hidden="true">8.</strong> 交易</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building-with-alloy/transactions/using-the-transaction-builder.html"><strong aria-hidden="true">8.1.</strong> 使用交易构建器</a></li><li class="chapter-item "><a href="../building-with-alloy/transactions/sending-an-EIP-1559-transaction.html"><strong aria-hidden="true">8.2.</strong> 发送 EIP-1559 交易</a></li><li class="chapter-item "><a href="../building-with-alloy/transactions/sending-a-legacy-transaction.html"><strong aria-hidden="true">8.3.</strong> 发送传统交易</a></li><li class="chapter-item "><a href="../building-with-alloy/transactions/sending-an-EIP-4844-transaction.html"><strong aria-hidden="true">8.4.</strong> 发送 EIP-4844 交易</a></li><li class="chapter-item "><a href="../building-with-alloy/transactions/using-access-lists.html"><strong aria-hidden="true">8.5.</strong> 使用访问列表</a></li></ol></li><li class="chapter-item "><li class="part-title">亮点</li><li class="chapter-item "><a href="../highlights/the-sol!-procedural-macro.html"><strong aria-hidden="true">9.</strong> sol! 过程宏</a></li><li class="chapter-item "><a href="../highlights/the-transaction-lifecycle.html"><strong aria-hidden="true">10.</strong> 交易生命周期</a></li><li class="chapter-item affix "><li class="part-title">示例</li><li class="chapter-item "><a href="../examples/anvil/index.html"><strong aria-hidden="true">11.</strong> Anvil</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../examples/anvil/deploy_contract_anvil.html"><strong aria-hidden="true">11.1.</strong> 部署合约</a></li><li class="chapter-item "><a href="../examples/anvil/fork_anvil.html"><strong aria-hidden="true">11.2.</strong> 分叉</a></li><li class="chapter-item "><a href="../examples/anvil/local_anvil.html"><strong aria-hidden="true">11.3.</strong> 本地</a></li></ol></li><li class="chapter-item "><a href="../examples/big-numbers/index.html"><strong aria-hidden="true">12.</strong> 大数</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../examples/big-numbers/comparison_equivalence.html"><strong aria-hidden="true">12.1.</strong> 比较与等价</a></li><li class="chapter-item "><a href="../examples/big-numbers/conversion.html"><strong aria-hidden="true">12.2.</strong> 转换</a></li><li class="chapter-item "><a href="../examples/big-numbers/create_instances.html"><strong aria-hidden="true">12.3.</strong> 创建实例</a></li><li class="chapter-item "><a href="../examples/big-numbers/math_operations.html"><strong aria-hidden="true">12.4.</strong> 数学运算</a></li><li class="chapter-item "><a href="../examples/big-numbers/math_utilities.html"><strong aria-hidden="true">12.5.</strong> 数学工具</a></li></ol></li><li class="chapter-item "><a href="../examples/contracts/index.html"><strong aria-hidden="true">13.</strong> 合约</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../examples/contracts/deploy_from_artifact.html"><strong aria-hidden="true">13.1.</strong> 从工件部署</a></li><li class="chapter-item "><a href="../examples/contracts/deploy_from_bytecode.html"><strong aria-hidden="true">13.2.</strong> 从字节码部署</a></li><li class="chapter-item "><a href="../examples/contracts/deploy_from_contract.html"><strong aria-hidden="true">13.3.</strong> 从合约部署</a></li><li class="chapter-item "><a href="../examples/contracts/interact_with_abi.html"><strong aria-hidden="true">13.4.</strong> 与 ABI 交互</a></li><li class="chapter-item "><a href="../examples/contracts/interact_with_contract_instance.html"><strong aria-hidden="true">13.5.</strong> 与合约实例交互</a></li><li class="chapter-item "><a href="../examples/contracts/unknown_return_types.html"><strong aria-hidden="true">13.6.</strong> 处理未知返回类型</a></li></ol></li><li class="chapter-item "><a href="../examples/fillers/index.html"><strong aria-hidden="true">14.</strong> 填充器</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../examples/fillers/gas_filler.html"><strong aria-hidden="true">14.1.</strong> Gas 估计填充器</a></li><li class="chapter-item "><a href="../examples/fillers/nonce_filler.html"><strong aria-hidden="true">14.2.</strong> Nonce 管理填充器</a></li><li class="chapter-item "><a href="../examples/fillers/recommended_fillers.html"><strong aria-hidden="true">14.3.</strong> 推荐的填充器</a></li><li class="chapter-item "><a href="../examples/fillers/wallet_filler.html"><strong aria-hidden="true">14.4.</strong> 钱包管理填充器</a></li></ol></li><li class="chapter-item "><a href="../examples/layers/index.html"><strong aria-hidden="true">15.</strong> 层</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../examples/layers/logging_layer.html"><strong aria-hidden="true">15.1.</strong> 请求/响应日志记录层</a></li></ol></li><li class="chapter-item "><a href="../examples/primitives/index.html"><strong aria-hidden="true">16.</strong> 基本类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../examples/primitives/bytes_and_address_types.html"><strong aria-hidden="true">16.1.</strong> 字节和地址类型</a></li><li class="chapter-item "><a href="../examples/primitives/hashing_functions.html"><strong aria-hidden="true">16.2.</strong> 哈希函数</a></li></ol></li><li class="chapter-item "><a href="../examples/providers/index.html"><strong aria-hidden="true">17.</strong> 提供者</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../examples/providers/builder.html"><strong aria-hidden="true">17.1.</strong> 构建者</a></li><li class="chapter-item "><a href="../examples/providers/builtin.html"><strong aria-hidden="true">17.2.</strong> 内置提供者</a></li><li class="chapter-item "><a href="../examples/providers/http.html"><strong aria-hidden="true">17.3.</strong> HTTP</a></li><li class="chapter-item "><a href="../examples/providers/ws.html"><strong aria-hidden="true">17.4.</strong> WS</a></li><li class="chapter-item "><a href="../examples/providers/ws_with_auth.html"><strong aria-hidden="true">17.5.</strong> 带身份验证的 WS</a></li><li class="chapter-item "><a href="../examples/providers/ipc.html"><strong aria-hidden="true">17.6.</strong> IPC</a></li></ol></li><li class="chapter-item "><a href="../examples/queries/index.html"><strong aria-hidden="true">18.</strong> 查询</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../examples/queries/query_contract_storage.html"><strong aria-hidden="true">18.1.</strong> 查询合约存储</a></li><li class="chapter-item "><a href="../examples/queries/query_deployed_bytecode.html"><strong aria-hidden="true">18.2.</strong> 查询合约部署的字节码</a></li><li class="chapter-item "><a href="../examples/queries/query_logs.html"><strong aria-hidden="true">18.3.</strong> 查询日志</a></li></ol></li><li class="chapter-item "><a href="../examples/sol-macro/index.html"><strong aria-hidden="true">19.</strong> sol! 宏</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../examples/sol-macro/contract.html"><strong aria-hidden="true">19.1.</strong> 合约</a></li><li class="chapter-item "><a href="../examples/sol-macro/decode_returns.html"><strong aria-hidden="true">19.2.</strong> 解码返回值</a></li><li class="chapter-item "><a href="../examples/sol-macro/events_errors.html"><strong aria-hidden="true">19.3.</strong> 事件和错误</a></li><li class="chapter-item "><a href="../examples/sol-macro/structs_enums.html"><strong aria-hidden="true">19.4.</strong> 结构体和枚举</a></li><li class="chapter-item "><a href="../examples/sol-macro/user_defined_types.html"><strong aria-hidden="true">19.5.</strong> 用户定义的类型</a></li></ol></li><li class="chapter-item "><a href="../examples/subscriptions/index.html"><strong aria-hidden="true">20.</strong> 订阅</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../examples/subscriptions/poll_logs.html"><strong aria-hidden="true">20.1.</strong> 监视和轮询合约事件日志</a></li><li class="chapter-item "><a href="../examples/subscriptions/subscribe_blocks.html"><strong aria-hidden="true">20.2.</strong> 订阅和监视区块</a></li><li class="chapter-item "><a href="../examples/subscriptions/subscribe_logs.html"><strong aria-hidden="true">20.3.</strong> 订阅和监听特定合约事件日志</a></li><li class="chapter-item "><a href="../examples/subscriptions/subscribe_all_logs.html"><strong aria-hidden="true">20.4.</strong> 订阅和监听所有合约事件日志</a></li><li class="chapter-item "><a href="../examples/subscriptions/subscribe_pending_transactions.html"><strong aria-hidden="true">20.5.</strong> 订阅并监听公共记忆池中的待处理交易</a></li><li class="chapter-item "><a href="../examples/subscriptions/event_multiplexer.html"><strong aria-hidden="true">20.6.</strong> 事件多路复用器</a></li></ol></li><li class="chapter-item "><a href="../examples/transactions/index.html"><strong aria-hidden="true">21.</strong> 交易</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../examples/transactions/decode_input.html"><strong aria-hidden="true">21.1.</strong> 解码输入</a></li><li class="chapter-item "><a href="../examples/transactions/encode_decode_eip1559.html"><strong aria-hidden="true">21.2.</strong> 编码和解码 EIP-1559 交易</a></li><li class="chapter-item "><a href="../examples/transactions/gas_price_usd.html"><strong aria-hidden="true">21.3.</strong> 获取以美元计的 Gas 价格</a></li><li class="chapter-item "><a href="../examples/transactions/trace_call.html"><strong aria-hidden="true">21.4.</strong> 跟踪调用</a></li><li class="chapter-item "><a href="../examples/transactions/trace_transaction.html"><strong aria-hidden="true">21.5.</strong> 跟踪交易</a></li><li class="chapter-item "><a href="../examples/transactions/transfer_erc20.html"><strong aria-hidden="true">21.6.</strong> 转账 ERC20 代币</a></li><li class="chapter-item "><a href="../examples/transactions/transfer_eth.html"><strong aria-hidden="true">21.7.</strong> 转账 ETH</a></li><li class="chapter-item "><a href="../examples/transactions/send_raw_transaction.html"><strong aria-hidden="true">21.8.</strong> 签名并发送原始交易</a></li><li class="chapter-item "><a href="../examples/transactions/with_access_list.html"><strong aria-hidden="true">21.9.</strong> 发送带访问列表的交易</a></li><li class="chapter-item "><a href="../examples/transactions/send_eip1559_transaction.html"><strong aria-hidden="true">21.10.</strong> 发送 EIP-1559 交易</a></li><li class="chapter-item "><a href="../examples/transactions/send_legacy_transaction.html"><strong aria-hidden="true">21.11.</strong> 发送传统交易</a></li><li class="chapter-item "><a href="../examples/transactions/send_eip4844_transaction.html"><strong aria-hidden="true">21.12.</strong> 发送 EIP-4844 交易</a></li><li class="chapter-item "><a href="../examples/transactions/send_private_transaction.html"><strong aria-hidden="true">21.13.</strong> 使用 Flashbots Protect 发送私密交易</a></li></ol></li><li class="chapter-item "><a href="../examples/wallets/index.html"><strong aria-hidden="true">22.</strong> 钱包</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../examples/wallets/aws_signer.html"><strong aria-hidden="true">22.1.</strong> AWS 签名器</a></li><li class="chapter-item "><a href="../examples/wallets/ledger_signer.html"><strong aria-hidden="true">22.2.</strong> Ledger 签名器</a></li><li class="chapter-item "><a href="../examples/wallets/private_key_signer.html"><strong aria-hidden="true">22.3.</strong> 私钥签名器</a></li><li class="chapter-item "><a href="../examples/wallets/mnemonic_signer.html"><strong aria-hidden="true">22.4.</strong> 助记词签名器</a></li><li class="chapter-item "><a href="../examples/wallets/sign_message.html"><strong aria-hidden="true">22.5.</strong> 签名消息</a></li><li class="chapter-item "><a href="../examples/wallets/verify_message.html"><strong aria-hidden="true">22.6.</strong> 验证消息</a></li><li class="chapter-item "><a href="../examples/wallets/sign_permit_hash.html"><strong aria-hidden="true">22.7.</strong> 签名许可哈希</a></li><li class="chapter-item "><a href="../examples/wallets/trezor_signer.html"><strong aria-hidden="true">22.8.</strong> Trezor 签名器</a></li><li class="chapter-item "><a href="../examples/wallets/yubi_signer.html"><strong aria-hidden="true">22.9.</strong> Yubi 签名器</a></li><li class="chapter-item "><a href="../examples/wallets/keystore_signer.html"><strong aria-hidden="true">22.10.</strong> 密钥库签名器</a></li><li class="chapter-item "><a href="../examples/wallets/create_keystore.html"><strong aria-hidden="true">22.11.</strong> 创建密钥库</a></li></ol></li><li class="chapter-item "><a href="../examples/advanced/index.html"><strong aria-hidden="true">23.</strong> 高级</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../examples/advanced/any_network.html"><strong aria-hidden="true">23.1.</strong> 使用 AnyNetwork</a></li></ol></li><li class="chapter-item "><li class="part-title">附录</li><li class="chapter-item expanded "><a href="../appendix/contributing.html" class="active"><strong aria-hidden="true">24.</strong> 帮助我们改进 Alloy</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Alloy Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/alloy-rs/book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/alloy-rs/book/edit/main/src/appendix/contributing.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="contributing-to-alloy"><a class="header" href="#contributing-to-alloy">Contributing to Alloy</a></h1>
+<p>🎈 Thanks for your help improving the project! We are so happy to have
+you!</p>
+<p>There are opportunities to contribute to Alloy at any level. It doesn't
+matter if you are just getting started with Rust or are the most weathered
+expert, we can use your help.</p>
+<p><strong>No contribution is too small and all contributions are valued.</strong></p>
+<p>This guide will help you get started. <strong>Do not let this guide intimidate you</strong>.
+It should be considered a map to help you navigate the process.</p>
+<p>The <a href="https://t.me/ethers_rs">dev channel</a> is available for any concerns not covered in this guide,
+please join us!</p>
+<h2 id="conduct"><a class="header" href="#conduct">Conduct</a></h2>
+<p>The Alloy project adheres to the <a href="https://www.rust-lang.org/policies/code-of-conduct">Rust Code of Conduct</a>. This describes
+the <em>minimum</em> behavior expected from all contributors. Instances of violations
+of the Code of Conduct can be reported by contacting the project team at
+<a href="mailto:james@prestwi.ch">james@prestwich</a>.</p>
+<h2 id="contributing-in-issues"><a class="header" href="#contributing-in-issues">Contributing in Issues</a></h2>
+<p>For any issue, there are fundamentally three ways an individual can contribute:</p>
+<ol>
+<li>
+<p>By opening the issue for discussion: For instance, if you believe that you
+have uncovered a bug in Alloy, creating a new issue in the Alloy
+issue tracker is the way to report it.</p>
+</li>
+<li>
+<p>By helping to triage the issue: This can be done by providing
+supporting details (a test case that demonstrates a bug), providing
+suggestions on how to address the issue, or ensuring that the issue is tagged
+correctly.</p>
+</li>
+<li>
+<p>By helping to resolve the issue: Typically this is done either in the form of
+demonstrating that the issue reported is not a problem after all, or more
+often, by opening a Pull Request that changes some bit of something in
+Alloy in a concrete and reviewable manner.</p>
+</li>
+</ol>
+<p><strong>Anybody can participate in any stage of contribution</strong>. We urge you to
+participate in the discussion around bugs and participate in reviewing PRs.</p>
+<h3 id="asking-for-general-help"><a class="header" href="#asking-for-general-help">Asking for General Help</a></h3>
+<p>If you have reviewed existing documentation and still have questions or are
+having problems, you can open an issue asking for help.</p>
+<p>In exchange for receiving help, we ask that you contribute back a documentation
+PR that helps others avoid the problems that you encountered.</p>
+<h2 id="pull-requests"><a class="header" href="#pull-requests">Pull Requests</a></h2>
+<p>Pull Requests are the way concrete changes are made to the code, documentation,
+and dependencies in the Alloy repository.</p>
+<p>Even tiny pull requests (e.g., one character pull request fixing a typo in API
+documentation) are greatly appreciated. Before making a large change, it is
+usually a good idea to first open an issue describing the change to solicit
+feedback and guidance. This will increase the likelihood of the PR getting
+merged.</p>
+<p>When opening a PR <strong>please select the "Allow Edits From Maintainers" option</strong>.
+Alloy maintains strict standards for code quality and style, as well as
+commit signing. This option allows us to make small changes to your PR to bring
+it in line with these standards. It helps us get your PR in faster, and with
+less work from you.</p>
+<h3 id="commits"><a class="header" href="#commits">Commits</a></h3>
+<p>It is a recommended best practice to keep your changes as logically grouped as
+possible within individual commits. There is no limit to the number of commits
+any single Pull Request may have, and many contributors find it easier to review
+changes that are split across multiple commits.</p>
+<p>That said, if you have a number of commits that are "checkpoints" and don't
+represent a single logical change, please squash those together.</p>
+<p>Note that multiple commits often get squashed when they are landed (see the
+notes about <a href="#commit-squashing">commit squashing</a>).</p>
+<h4 id="commit-message-guidelines"><a class="header" href="#commit-message-guidelines">Commit message guidelines</a></h4>
+<p>Commit messages should follow the
+<a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a>
+specification.</p>
+<h3 id="usage"><a class="header" href="#usage">Usage</a></h3>
+<p>This section lists some commonly needed commands.</p>
+<p>First create a <a href="https://github.com/alloy-rs/book/fork">fork</a>.</p>
+<p>Next clone your fork with the <code>--recurse-submodules</code> flag:</p>
+<pre><code class="language-sh">git clone --recurse-submodules $FORK_URL
+</code></pre>
+<p>The book is build with <a href="https://github.com/rust-lang/mdBook"><code>mdbook</code></a>, which you can get by running <code>cargo install mdbook</code>.</p>
+<p>The book requires <a href="https://github.com/jonahgoldwastaken/mdbook-external-links"><code>mdbook-external-links</code></a>: <code>cargo install mdbook-external-links</code> and <a href="https://github.com/Michael-F-Bryan/mdbook-linkcheck"><code>mdbook-linkcheck</code></a>: <code>cargo install mdbook-linkcheck</code>.</p>
+<p>To see the book change live run:</p>
+<pre><code class="language-sh">mdbook serve
+</code></pre>
+<p>To run the book with docker, run:</p>
+<pre><code class="language-sh">docker run -p 3000:3000 -v `pwd`:/book peaceiris/mdbook serve
+</code></pre>
+<p>To perform an update of generated output inspect and run <code>./scripts/update.sh</code>.</p>
+<p>To add a new section (file) to the book, add it to <code>./src/SUMMARY.md</code>.</p>
+<h3 id="discuss-and-update"><a class="header" href="#discuss-and-update">Discuss and update</a></h3>
+<p>You will probably get feedback or requests for changes to your Pull Request.
+This is a big part of the submission process so don't be discouraged! Some
+contributors may sign off on the Pull Request right away, others may have
+more detailed comments or feedback. This is a necessary part of the process
+in order to evaluate whether the changes are correct and necessary.</p>
+<p><strong>Any community member can review a PR and you might get conflicting feedback</strong>.
+Keep an eye out for comments from code owners to provide guidance on conflicting
+feedback.</p>
+<p><strong>Once the PR is open, do not rebase the commits</strong>. See
+<a href="#commit-squashing">Commit Squashing</a> for more details.</p>
+<h3 id="commit-squashing"><a class="header" href="#commit-squashing">Commit Squashing</a></h3>
+<p>In most cases, <strong>do not squash commits that you add to your Pull Request during
+the review process</strong>. When the commits in your Pull Request land, they may be
+squashed into one commit per logical change. Metadata will be added to the
+commit message (including links to the Pull Request, links to relevant issues,
+and the names of the reviewers). The commit history of your Pull Request,
+however, will stay intact on the Pull Request page.</p>
+<h2 id="reviewing-pull-requests"><a class="header" href="#reviewing-pull-requests">Reviewing Pull Requests</a></h2>
+<p><strong>Any Alloy community member is welcome to review any pull request</strong>.</p>
+<p>All Alloy contributors who choose to review and provide feedback on Pull
+Requests have a responsibility to both the project and the individual making the
+contribution. Reviews and feedback must be helpful, insightful, and geared
+towards improving the contribution as opposed to simply blocking it. If there
+are reasons why you feel the PR should not land, explain what those are. Do not
+expect to be able to block a Pull Request from advancing simply because you say
+"No" without giving an explanation. Be open to having your mind changed. Be open
+to working with the contributor to make the Pull Request better.</p>
+<p>Reviews that are dismissive or disrespectful of the contributor or any other
+reviewers are strictly counter to the Code of Conduct.</p>
+<p>When reviewing a Pull Request, the primary goals are for the codebase to improve
+and for the person submitting the request to succeed. <strong>Even if a Pull Request
+does not land, the submitters should come away from the experience feeling like
+their effort was not wasted or unappreciated</strong>. Every Pull Request from a new
+contributor is an opportunity to grow the community.</p>
+<h3 id="review-a-bit-at-a-time"><a class="header" href="#review-a-bit-at-a-time">Review a bit at a time.</a></h3>
+<p>Do not overwhelm new contributors.</p>
+<p>It is tempting to micro-optimize and make everything about relative performance,
+perfect grammar, or exact style matches. Do not succumb to that temptation.</p>
+<p>Focus first on the most significant aspects of the change:</p>
+<ol>
+<li>Does this change make sense for Alloy?</li>
+<li>Does this change make Alloy better, even if only incrementally?</li>
+<li>Are there clear bugs or larger scale issues that need attending to?</li>
+<li>Is the commit message readable and correct? If it contains a breaking change
+is it clear enough?</li>
+</ol>
+<p>Note that only <strong>incremental</strong> improvement is needed to land a PR. This means
+that the PR does not need to be perfect, only better than the status quo. Follow
+up PRs may be opened to continue iterating.</p>
+<p>When changes are necessary, <em>request</em> them, do not <em>demand</em> them, and <strong>do not
+assume that the submitter already knows how to add a test or run a benchmark</strong>.</p>
+<p>Specific performance optimization techniques, coding styles and conventions
+change over time. The first impression you give to a new contributor never does.</p>
+<p>Nits (requests for small changes that are not essential) are fine, but try to
+avoid stalling the Pull Request. Most nits can typically be fixed by the
+Alloy Collaborator landing the Pull Request but they can also be an
+opportunity for the contributor to learn a bit more about the project.</p>
+<p>It is always good to clearly indicate nits when you comment: e.g.
+<code>Nit: change foo() to bar(). But this is not blocking.</code></p>
+<p>If your comments were addressed but were not folded automatically after new
+commits or if they proved to be mistaken, please, <a href="https://help.github.com/articles/managing-disruptive-comments/#hiding-a-comment">hide them</a>
+with the appropriate reason to keep the conversation flow concise and relevant.</p>
+<h3 id="be-aware-of-the-person-behind-the-code"><a class="header" href="#be-aware-of-the-person-behind-the-code">Be aware of the person behind the code</a></h3>
+<p>Be aware that <em>how</em> you communicate requests and reviews in your feedback can
+have a significant impact on the success of the Pull Request. Yes, we may land
+a particular change that makes Alloy better, but the individual might just
+not want to have anything to do with Alloy ever again. The goal is not just
+having good code.</p>
+<h3 id="abandoned-or-stalled-pull-requests"><a class="header" href="#abandoned-or-stalled-pull-requests">Abandoned or Stalled Pull Requests</a></h3>
+<p>If a Pull Request appears to be abandoned or stalled, it is polite to first
+check with the contributor to see if they intend to continue the work before
+checking if they would mind if you took it over (especially if it just has nits
+left). When doing so, it is courteous to give the original contributor credit
+for the work they started (either by preserving their name and email address in
+the commit log, or by using an <code>Author: </code> meta-data tag in the commit.</p>
+<p><em>Adapted from the <a href="https://github.com/tokio-rs/tokio/blob/master/CONTRIBUTING.md">Tokio contributing guide</a></em>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../examples/advanced/any_network.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../examples/advanced/any_network.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

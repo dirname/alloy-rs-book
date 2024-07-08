@@ -1,25 +1,25 @@
 ## IPC `Provider`
 
-The [IPC (Inter-Process Communication)](https://en.wikipedia.org/wiki/Inter-process_communication) transport allows our program to communicate with a node over a local [Unix domain socket](https://en.wikipedia.org/wiki/Unix_domain_socket) or [Windows named pipe](https://learn.microsoft.com/en-us/windows/win32/ipc/named-pipes).
+[IPC（进程间通信）](https://en.wikipedia.org/wiki/Inter-process_communication) 传输允许我们的程序通过本地 [Unix 域 socket](https://en.wikipedia.org/wiki/Unix_domain_socket) 或 [Windows 命名管道](https://learn.microsoft.com/en-us/windows/win32/ipc/named-pipes)与一个节点进行通信。
 
-Using the IPC transport allows the ethers library to send JSON-RPC requests to the Ethereum client and receive responses, without the need for a network connection or HTTP server. This can be useful for interacting with a local Ethereum node that is running on the same network. Using IPC [is faster than RPC](https://github.com/0xKitsune/geth-ipc-rpc-bench), however you will need to have a local node that you can connect to.
+使用 IPC 传输让 ethers 库可以向 Ethereum 客户端发送 JSON-RPC 请求并接收响应，而无需网络连接或 HTTP 服务器。这对于与运行在同一网络上的本地 Ethereum 节点进行交互非常有用。使用 IPC [比 RPC 更快](https://github.com/0xKitsune/geth-ipc-rpc-bench)，但是你需要能够连接到一个本地节点。
 
-### Initializing an `Ipc` Provider
+### 初始化一个 `Ipc` 提供者
 
-The recommended way of initializing an `Ipc` provider is by using the [`on_ipc`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html#method.on_ipc) method on the [`ProviderBuilder`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html) with an [`IpcConnect`](https://docs.rs/alloy/latest/alloy/providers/struct.IpcConnect.html) configuration.
+初始化 `Ipc` 提供者的推荐方式是使用 [`ProviderBuilder`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html) 上的 [`on_ipc`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html#method.on_ipc) 方法，并配置 [`IpcConnect`](https://docs.rs/alloy/latest/alloy/providers/struct.IpcConnect.html)。
 
 ```rust,ignore
-//! Example of creating an IPC provider using the `on_ipc` method on the `ProviderBuilder`.
+//! 使用 `ProviderBuilder` 上的 `on_ipc` 方法创建一个 IPC 提供者的示例。
 
 use alloy::providers::{IpcConnect, Provider, ProviderBuilder};
 use eyre::Result;
 
 #[tokio::main]
 async fn main() -> eyre::Result<()> {
-    // Set up the IPC transport which is consumed by the RPC client.
+    // 设置由 RPC 客户端使用的 IPC 传输。
     let ipc_path = "/tmp/reth.ipc";
 
-    // Create the provider.
+    // 创建提供者。
     let ipc = IpcConnect::new(ipc_path.to_string());
     let provider = ProviderBuilder::new().on_ipc(ipc).await?;
 
@@ -27,17 +27,17 @@ async fn main() -> eyre::Result<()> {
 }
 ```
 
-An alternative way of initializing is to use the [`on_builtin`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html#method.on_builtin) method on the [`ProviderBuilder`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html). This method will automatically determine the connection type (`Http`, `Ws` or `Ipc`) depending on the format of the URL. This method is particularly useful if you need a boxed transport.
+另一种初始化方式是使用 [`ProviderBuilder`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html) 上的 [`on_builtin`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html#method.on_builtin) 方法。此方法会根据 URL 的格式自动确定连接类型（`Http`、`Ws` 或 `Ipc`）。如果你需要一个盒装传输，此方法特别有用。
 
 ```rust,ignore
-//! Example of creating an IPC provider using the `on_builtin` method on the `ProviderBuilder`.
+//! 使用 `ProviderBuilder` 上的 `on_builtin` 方法创建一个 IPC 提供者的示例。
 
 use alloy::providers::{Provider, ProviderBuilder};
 use eyre::Result;
 
 #[tokio::main]
 async fn main() -> eyre::Result<()> {
-    // Create a provider with the IPC transport.
+    // 使用 IPC 传输创建提供者。
     let provider = ProviderBuilder::new().on_builtin("/tmp/reth.ipc").await?;
 
     Ok(())

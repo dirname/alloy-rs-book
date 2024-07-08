@@ -1,4 +1,4 @@
-## Queries
+## 查询
 
 {{#include ../examples/queries/query_contract_storage.md}}
 

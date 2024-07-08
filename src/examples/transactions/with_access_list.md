@@ -3,17 +3,17 @@
 <!-- EDIT OR CREATE THIS TEMPLATE INSTEAD: ./src/templates/transactions/with_access_list.md -->
 <!-- LATEST UPDATE: https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620 -->
 
-## Example: `with_access_list`
+## 示例: `with_access_list`
 
-### Example
+### 示例
 
-To run this example:
+运行本示例：
 
-- Clone the [examples](https://github.com/alloy-rs/examples) repository: `git clone git@github.com:alloy-rs/examples.git`
-- Run: `cargo run --example with_access_list`
+- 克隆 [examples](https://github.com/alloy-rs/examples) 仓库: `git clone git@github.com:alloy-rs/examples.git`
+- 运行: `cargo run --example with_access_list`
 
 ```rust,ignore
 {{#include ../../../lib/examples/examples/transactions/examples/with_access_list.rs}}
 ```
 
-Find the source code on Github [here](https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620/examples/transactions/examples/with_access_list.rs).
+在 Github 上查看源码 [here](https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620/examples/transactions/examples/with_access_list.rs).

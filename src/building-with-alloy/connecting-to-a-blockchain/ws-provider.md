@@ -1,23 +1,23 @@
 ## WS `Provider`
 
-The `Ws` provider establishes an WebSocket connection with a node, allowing you to send JSON-RPC requests to the node to fetch data, simulate calls, send transactions and much more. The `Ws` provider can be used with any Ethereum node that supports WebSocket connections. This allows programs to interact with the network in real-time without the need for HTTP polling for things like new block headers and filter logs.
+`Ws` 提供者与节点建立 WebSocket 连接，允许你发送 JSON-RPC 请求到节点以获取数据、模拟调用、发送交易等功能。`Ws` 提供者可以用于任何支持 WebSocket 连接的以太坊节点。这使得程序可以实时与网络进行交互，而不需要通过 HTTP 轮询来获取诸如新区块头和过滤日志之类的信息。
 
-### Initializing a `Ws` Provider
+### 初始化 `Ws` 提供者
 
-The recommended way of initializing a `Ws` provider is by using the [`on_ws`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html#method.on_ws) method on the [`ProviderBuilder`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html) with a [`WsConnect`](https://docs.rs/alloy/latest/alloy/providers/struct.WsConnect.html) configuration.
+推荐的方法是使用 [`ProviderBuilder`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html) 的 [`on_ws`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html#method.on_ws) 方法与 [`WsConnect`](https://docs.rs/alloy/latest/alloy/providers/struct.WsConnect.html) 配置来初始化 `Ws` 提供者。
 
 ```rust,ignore
-//! Example of creating an WS provider using the `on_ws` method on the `ProviderBuilder`.
+//! 使用 `ProviderBuilder` 的 `on_ws` 方法创建一个 WS 提供者的示例。
 
 use alloy::providers::{Provider, ProviderBuilder, WsConnect};
 use eyre::Result;
 
 #[tokio::main]
 async fn main() -> eyre::Result<()> {
-    // Set up the WS transport which is consumed by the RPC client.
+    // 设置由 RPC 客户端消费的 WS 传输。
     let rpc_url = "wss://eth-mainnet.g.alchemy.com/v2/your-api-key";
 
-    // Create the provider.
+    // 创建提供者。
     let ws = WsConnect::new(rpc_url);
     let provider = ProviderBuilder::new().on_ws(ws).await?;
 
@@ -25,26 +25,25 @@ async fn main() -> eyre::Result<()> {
 }
 ```
 
-An alternative way of initializing is to use the [`on_builtin`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html#method.on_builtin) method on the [`ProviderBuilder`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html). This method will automatically determine the connection type (`Http`, `Ws` or `Ipc`) depending on the format of the URL. This method is particularly useful if you need a boxed transport.
+另一种初始化方法是使用 [`ProviderBuilder`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html) 的 [`on_builtin`](https://docs.rs/alloy/latest/alloy/providers/struct.ProviderBuilder.html#method.on_builtin) 方法。该方法将根据 URL 的格式自动确定连接类型（`Http`、`Ws` 或 `Ipc`）。如果你需要一个封装的 transport，这个方法特别有用。
 
 ```rust,ignore
-//! Example of creating an WS provider using the `on_builtin` method on the `ProviderBuilder`.
+//! 使用 `ProviderBuilder` 的 `on_builtin` 方法创建一个 WS 提供者的示例。
 
 use alloy::providers::{Provider, ProviderBuilder};
 use eyre::Result;
 
 #[tokio::main]
 async fn main() -> eyre::Result<()> {
-    // Create a provider with the WS transport.
+    // 使用 WS 传输创建一个提供者。
     let provider = ProviderBuilder::new().on_builtin("wss://eth-mainnet.g.alchemy.com/v2/your-api-key").await?;
 
     Ok(())
 }
 ```
 
-Similar to the other providers, you can also establish an authorized connection with a node via websockets.
+与其他提供者类似，你也可以通过 WebSockets 与节点建立授权连接。
 
 {{#include ../../examples/providers/ws.md}}
-
 
 {{#include ../../examples/providers/ws_with_auth.md}}

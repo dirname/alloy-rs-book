@@ -1,0 +1,262 @@
+<!DOCTYPE HTML>
+<html lang="en" class="ayu" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>本地 - Alloy Book</title>
+
+
+        <!-- Custom HTML head -->
+                <meta name="twitter:card" content="summary">
+                <meta property="og:title" content="Alloy Book" />
+                <meta property="og:description" content="A book on all things Alloy" />
+                <meta property="og:image" content="https://raw.githubusercontent.com/alloy-rs/book/master/src/images/banner.jpg" />
+        <meta name="description" content="A book on all things Alloy">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="../../index.html">简介</a></li><li class="chapter-item affix "><li class="part-title">入门指南</li><li class="chapter-item "><a href="../../getting-started/installation.html"><strong aria-hidden="true">1.</strong> 安装</a></li><li class="chapter-item "><a href="../../getting-started/first-steps.html"><strong aria-hidden="true">2.</strong> Alloy 的第一步</a></li><li class="chapter-item affix "><li class="part-title">从 ethers-rs 迁移</li><li class="chapter-item "><a href="../../migrating-from-ethers/reference.html"><strong aria-hidden="true">3.</strong> 参考</a></li><li class="chapter-item affix "><li class="part-title">使用 Alloy 构建</li><li class="chapter-item "><a href="../../building-with-alloy/basic-building-blocks/index.html"><strong aria-hidden="true">4.</strong> 基础构建模块</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../building-with-alloy/basic-building-blocks/using-big-numbers.html"><strong aria-hidden="true">4.1.</strong> 使用大数</a></li><li class="chapter-item "><a href="../../building-with-alloy/basic-building-blocks/basic-hash-and-address-types.html"><strong aria-hidden="true">4.2.</strong> 基本哈希和地址类型</a></li><li class="chapter-item "><a href="../../building-with-alloy/basic-building-blocks/common-conversions.html"><strong aria-hidden="true">4.3.</strong> 常见转换</a></li><li class="chapter-item "><a href="../../building-with-alloy/basic-building-blocks/creating-instances.html"><strong aria-hidden="true">4.4.</strong> 创建实例</a></li><li class="chapter-item "><a href="../../building-with-alloy/basic-building-blocks/comparisons-and-equivalence.html"><strong aria-hidden="true">4.5.</strong> 比较与等价</a></li></ol></li><li class="chapter-item "><a href="../../building-with-alloy/connecting-to-a-blockchain/index.html"><strong aria-hidden="true">5.</strong> 连接到区块链</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../building-with-alloy/connecting-to-a-blockchain/setting-up-a-provider.html"><strong aria-hidden="true">5.1.</strong> 设置提供者</a></li><li class="chapter-item "><a href="../../building-with-alloy/connecting-to-a-blockchain/http-provider.html"><strong aria-hidden="true">5.2.</strong> 创建 HTTP 提供者</a></li><li class="chapter-item "><a href="../../building-with-alloy/connecting-to-a-blockchain/ws-provider.html"><strong aria-hidden="true">5.3.</strong> 创建 WS 提供者</a></li><li class="chapter-item "><a href="../../building-with-alloy/connecting-to-a-blockchain/ipc-provider.html"><strong aria-hidden="true">5.4.</strong> 创建 IPC 提供者</a></li></ol></li><li class="chapter-item "><a href="../../building-with-alloy/understanding-fillers.html"><strong aria-hidden="true">6.</strong> 理解填充器</a></li><li class="chapter-item "><a href="../../building-with-alloy/queries.html"><strong aria-hidden="true">7.</strong> 查询</a></li><li class="chapter-item "><a href="../../building-with-alloy/transactions/index.html"><strong aria-hidden="true">8.</strong> 交易</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../building-with-alloy/transactions/using-the-transaction-builder.html"><strong aria-hidden="true">8.1.</strong> 使用交易构建器</a></li><li class="chapter-item "><a href="../../building-with-alloy/transactions/sending-an-EIP-1559-transaction.html"><strong aria-hidden="true">8.2.</strong> 发送 EIP-1559 交易</a></li><li class="chapter-item "><a href="../../building-with-alloy/transactions/sending-a-legacy-transaction.html"><strong aria-hidden="true">8.3.</strong> 发送传统交易</a></li><li class="chapter-item "><a href="../../building-with-alloy/transactions/sending-an-EIP-4844-transaction.html"><strong aria-hidden="true">8.4.</strong> 发送 EIP-4844 交易</a></li><li class="chapter-item "><a href="../../building-with-alloy/transactions/using-access-lists.html"><strong aria-hidden="true">8.5.</strong> 使用访问列表</a></li></ol></li><li class="chapter-item "><li class="part-title">亮点</li><li class="chapter-item "><a href="../../highlights/the-sol!-procedural-macro.html"><strong aria-hidden="true">9.</strong> sol! 过程宏</a></li><li class="chapter-item "><a href="../../highlights/the-transaction-lifecycle.html"><strong aria-hidden="true">10.</strong> 交易生命周期</a></li><li class="chapter-item affix "><li class="part-title">示例</li><li class="chapter-item expanded "><a href="../../examples/anvil/index.html"><strong aria-hidden="true">11.</strong> Anvil</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../examples/anvil/deploy_contract_anvil.html"><strong aria-hidden="true">11.1.</strong> 部署合约</a></li><li class="chapter-item "><a href="../../examples/anvil/fork_anvil.html"><strong aria-hidden="true">11.2.</strong> 分叉</a></li><li class="chapter-item expanded "><a href="../../examples/anvil/local_anvil.html" class="active"><strong aria-hidden="true">11.3.</strong> 本地</a></li></ol></li><li class="chapter-item "><a href="../../examples/big-numbers/index.html"><strong aria-hidden="true">12.</strong> 大数</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../examples/big-numbers/comparison_equivalence.html"><strong aria-hidden="true">12.1.</strong> 比较与等价</a></li><li class="chapter-item "><a href="../../examples/big-numbers/conversion.html"><strong aria-hidden="true">12.2.</strong> 转换</a></li><li class="chapter-item "><a href="../../examples/big-numbers/create_instances.html"><strong aria-hidden="true">12.3.</strong> 创建实例</a></li><li class="chapter-item "><a href="../../examples/big-numbers/math_operations.html"><strong aria-hidden="true">12.4.</strong> 数学运算</a></li><li class="chapter-item "><a href="../../examples/big-numbers/math_utilities.html"><strong aria-hidden="true">12.5.</strong> 数学工具</a></li></ol></li><li class="chapter-item "><a href="../../examples/contracts/index.html"><strong aria-hidden="true">13.</strong> 合约</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../examples/contracts/deploy_from_artifact.html"><strong aria-hidden="true">13.1.</strong> 从工件部署</a></li><li class="chapter-item "><a href="../../examples/contracts/deploy_from_bytecode.html"><strong aria-hidden="true">13.2.</strong> 从字节码部署</a></li><li class="chapter-item "><a href="../../examples/contracts/deploy_from_contract.html"><strong aria-hidden="true">13.3.</strong> 从合约部署</a></li><li class="chapter-item "><a href="../../examples/contracts/interact_with_abi.html"><strong aria-hidden="true">13.4.</strong> 与 ABI 交互</a></li><li class="chapter-item "><a href="../../examples/contracts/interact_with_contract_instance.html"><strong aria-hidden="true">13.5.</strong> 与合约实例交互</a></li><li class="chapter-item "><a href="../../examples/contracts/unknown_return_types.html"><strong aria-hidden="true">13.6.</strong> 处理未知返回类型</a></li></ol></li><li class="chapter-item "><a href="../../examples/fillers/index.html"><strong aria-hidden="true">14.</strong> 填充器</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../examples/fillers/gas_filler.html"><strong aria-hidden="true">14.1.</strong> Gas 估计填充器</a></li><li class="chapter-item "><a href="../../examples/fillers/nonce_filler.html"><strong aria-hidden="true">14.2.</strong> Nonce 管理填充器</a></li><li class="chapter-item "><a href="../../examples/fillers/recommended_fillers.html"><strong aria-hidden="true">14.3.</strong> 推荐的填充器</a></li><li class="chapter-item "><a href="../../examples/fillers/wallet_filler.html"><strong aria-hidden="true">14.4.</strong> 钱包管理填充器</a></li></ol></li><li class="chapter-item "><a href="../../examples/layers/index.html"><strong aria-hidden="true">15.</strong> 层</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../examples/layers/logging_layer.html"><strong aria-hidden="true">15.1.</strong> 请求/响应日志记录层</a></li></ol></li><li class="chapter-item "><a href="../../examples/primitives/index.html"><strong aria-hidden="true">16.</strong> 基本类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../examples/primitives/bytes_and_address_types.html"><strong aria-hidden="true">16.1.</strong> 字节和地址类型</a></li><li class="chapter-item "><a href="../../examples/primitives/hashing_functions.html"><strong aria-hidden="true">16.2.</strong> 哈希函数</a></li></ol></li><li class="chapter-item "><a href="../../examples/providers/index.html"><strong aria-hidden="true">17.</strong> 提供者</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../examples/providers/builder.html"><strong aria-hidden="true">17.1.</strong> 构建者</a></li><li class="chapter-item "><a href="../../examples/providers/builtin.html"><strong aria-hidden="true">17.2.</strong> 内置提供者</a></li><li class="chapter-item "><a href="../../examples/providers/http.html"><strong aria-hidden="true">17.3.</strong> HTTP</a></li><li class="chapter-item "><a href="../../examples/providers/ws.html"><strong aria-hidden="true">17.4.</strong> WS</a></li><li class="chapter-item "><a href="../../examples/providers/ws_with_auth.html"><strong aria-hidden="true">17.5.</strong> 带身份验证的 WS</a></li><li class="chapter-item "><a href="../../examples/providers/ipc.html"><strong aria-hidden="true">17.6.</strong> IPC</a></li></ol></li><li class="chapter-item "><a href="../../examples/queries/index.html"><strong aria-hidden="true">18.</strong> 查询</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../examples/queries/query_contract_storage.html"><strong aria-hidden="true">18.1.</strong> 查询合约存储</a></li><li class="chapter-item "><a href="../../examples/queries/query_deployed_bytecode.html"><strong aria-hidden="true">18.2.</strong> 查询合约部署的字节码</a></li><li class="chapter-item "><a href="../../examples/queries/query_logs.html"><strong aria-hidden="true">18.3.</strong> 查询日志</a></li></ol></li><li class="chapter-item "><a href="../../examples/sol-macro/index.html"><strong aria-hidden="true">19.</strong> sol! 宏</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../examples/sol-macro/contract.html"><strong aria-hidden="true">19.1.</strong> 合约</a></li><li class="chapter-item "><a href="../../examples/sol-macro/decode_returns.html"><strong aria-hidden="true">19.2.</strong> 解码返回值</a></li><li class="chapter-item "><a href="../../examples/sol-macro/events_errors.html"><strong aria-hidden="true">19.3.</strong> 事件和错误</a></li><li class="chapter-item "><a href="../../examples/sol-macro/structs_enums.html"><strong aria-hidden="true">19.4.</strong> 结构体和枚举</a></li><li class="chapter-item "><a href="../../examples/sol-macro/user_defined_types.html"><strong aria-hidden="true">19.5.</strong> 用户定义的类型</a></li></ol></li><li class="chapter-item "><a href="../../examples/subscriptions/index.html"><strong aria-hidden="true">20.</strong> 订阅</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../examples/subscriptions/poll_logs.html"><strong aria-hidden="true">20.1.</strong> 监视和轮询合约事件日志</a></li><li class="chapter-item "><a href="../../examples/subscriptions/subscribe_blocks.html"><strong aria-hidden="true">20.2.</strong> 订阅和监视区块</a></li><li class="chapter-item "><a href="../../examples/subscriptions/subscribe_logs.html"><strong aria-hidden="true">20.3.</strong> 订阅和监听特定合约事件日志</a></li><li class="chapter-item "><a href="../../examples/subscriptions/subscribe_all_logs.html"><strong aria-hidden="true">20.4.</strong> 订阅和监听所有合约事件日志</a></li><li class="chapter-item "><a href="../../examples/subscriptions/subscribe_pending_transactions.html"><strong aria-hidden="true">20.5.</strong> 订阅并监听公共记忆池中的待处理交易</a></li><li class="chapter-item "><a href="../../examples/subscriptions/event_multiplexer.html"><strong aria-hidden="true">20.6.</strong> 事件多路复用器</a></li></ol></li><li class="chapter-item "><a href="../../examples/transactions/index.html"><strong aria-hidden="true">21.</strong> 交易</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../examples/transactions/decode_input.html"><strong aria-hidden="true">21.1.</strong> 解码输入</a></li><li class="chapter-item "><a href="../../examples/transactions/encode_decode_eip1559.html"><strong aria-hidden="true">21.2.</strong> 编码和解码 EIP-1559 交易</a></li><li class="chapter-item "><a href="../../examples/transactions/gas_price_usd.html"><strong aria-hidden="true">21.3.</strong> 获取以美元计的 Gas 价格</a></li><li class="chapter-item "><a href="../../examples/transactions/trace_call.html"><strong aria-hidden="true">21.4.</strong> 跟踪调用</a></li><li class="chapter-item "><a href="../../examples/transactions/trace_transaction.html"><strong aria-hidden="true">21.5.</strong> 跟踪交易</a></li><li class="chapter-item "><a href="../../examples/transactions/transfer_erc20.html"><strong aria-hidden="true">21.6.</strong> 转账 ERC20 代币</a></li><li class="chapter-item "><a href="../../examples/transactions/transfer_eth.html"><strong aria-hidden="true">21.7.</strong> 转账 ETH</a></li><li class="chapter-item "><a href="../../examples/transactions/send_raw_transaction.html"><strong aria-hidden="true">21.8.</strong> 签名并发送原始交易</a></li><li class="chapter-item "><a href="../../examples/transactions/with_access_list.html"><strong aria-hidden="true">21.9.</strong> 发送带访问列表的交易</a></li><li class="chapter-item "><a href="../../examples/transactions/send_eip1559_transaction.html"><strong aria-hidden="true">21.10.</strong> 发送 EIP-1559 交易</a></li><li class="chapter-item "><a href="../../examples/transactions/send_legacy_transaction.html"><strong aria-hidden="true">21.11.</strong> 发送传统交易</a></li><li class="chapter-item "><a href="../../examples/transactions/send_eip4844_transaction.html"><strong aria-hidden="true">21.12.</strong> 发送 EIP-4844 交易</a></li><li class="chapter-item "><a href="../../examples/transactions/send_private_transaction.html"><strong aria-hidden="true">21.13.</strong> 使用 Flashbots Protect 发送私密交易</a></li></ol></li><li class="chapter-item "><a href="../../examples/wallets/index.html"><strong aria-hidden="true">22.</strong> 钱包</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../examples/wallets/aws_signer.html"><strong aria-hidden="true">22.1.</strong> AWS 签名器</a></li><li class="chapter-item "><a href="../../examples/wallets/ledger_signer.html"><strong aria-hidden="true">22.2.</strong> Ledger 签名器</a></li><li class="chapter-item "><a href="../../examples/wallets/private_key_signer.html"><strong aria-hidden="true">22.3.</strong> 私钥签名器</a></li><li class="chapter-item "><a href="../../examples/wallets/mnemonic_signer.html"><strong aria-hidden="true">22.4.</strong> 助记词签名器</a></li><li class="chapter-item "><a href="../../examples/wallets/sign_message.html"><strong aria-hidden="true">22.5.</strong> 签名消息</a></li><li class="chapter-item "><a href="../../examples/wallets/verify_message.html"><strong aria-hidden="true">22.6.</strong> 验证消息</a></li><li class="chapter-item "><a href="../../examples/wallets/sign_permit_hash.html"><strong aria-hidden="true">22.7.</strong> 签名许可哈希</a></li><li class="chapter-item "><a href="../../examples/wallets/trezor_signer.html"><strong aria-hidden="true">22.8.</strong> Trezor 签名器</a></li><li class="chapter-item "><a href="../../examples/wallets/yubi_signer.html"><strong aria-hidden="true">22.9.</strong> Yubi 签名器</a></li><li class="chapter-item "><a href="../../examples/wallets/keystore_signer.html"><strong aria-hidden="true">22.10.</strong> 密钥库签名器</a></li><li class="chapter-item "><a href="../../examples/wallets/create_keystore.html"><strong aria-hidden="true">22.11.</strong> 创建密钥库</a></li></ol></li><li class="chapter-item "><a href="../../examples/advanced/index.html"><strong aria-hidden="true">23.</strong> 高级</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../examples/advanced/any_network.html"><strong aria-hidden="true">23.1.</strong> 使用 AnyNetwork</a></li></ol></li><li class="chapter-item "><li class="part-title">附录</li><li class="chapter-item "><a href="../../appendix/contributing.html"><strong aria-hidden="true">24.</strong> 帮助我们改进 Alloy</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Alloy Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/alloy-rs/book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/alloy-rs/book/edit/main/src/examples/anvil/local_anvil.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- DO NOT EDIT THIS FILE. IT IS GENERATED BY RUNNING `./scripts/update.sh` -->
+<!-- ANY CHANGES MADE TO THIS FILE WILL BE OVERWRITTEN -->
+<!-- EDIT OR CREATE THIS TEMPLATE INSTEAD: ./src/templates/anvil/local_anvil.md -->
+<!-- LATEST UPDATE: https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620 -->
+<h2 id="示例-local_anvil"><a class="header" href="#示例-local_anvil">示例: <code>local_anvil</code></a></h2>
+<h3 id="示例"><a class="header" href="#示例">示例</a></h3>
+<p>要运行此示例:</p>
+<ul>
+<li>克隆 <a href="https://github.com/alloy-rs/examples" title="" target="_blank">examples</a> 仓库: <code>git clone git@github.com:alloy-rs/examples.git</code></li>
+<li>运行: <code>cargo run --example local_anvil</code></li>
+</ul>
+<pre><code class="language-rust ignore">//! Example of spinning up a local Anvil node.
+
+use alloy::node_bindings::Anvil;
+use eyre::Result;
+
+#[tokio::main]
+async fn main() -&gt; Result&lt;()&gt; {
+    // Spin up a local Anvil node.
+    // Ensure `anvil` is available in $PATH.
+    let anvil = Anvil::new().block_time(1).chain_id(1337).try_spawn()?;
+
+    println!("Anvil running at `{}`", anvil.endpoint());
+
+    Ok(())
+}</code></pre>
+<p>在 Github 上可以找到源码 <a href="https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620/examples/anvil/examples/local_anvil.rs" title="" target="_blank">here</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../examples/anvil/fork_anvil.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../examples/big-numbers/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../examples/anvil/fork_anvil.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../examples/big-numbers/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

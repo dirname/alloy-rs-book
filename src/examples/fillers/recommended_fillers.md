@@ -3,17 +3,17 @@
 <!-- EDIT OR CREATE THIS TEMPLATE INSTEAD: ./src/templates/fillers/recommended_fillers.md -->
 <!-- LATEST UPDATE: https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620 -->
 
-## Example: `recommended_fillers`
+## 示例: `recommended_fillers`
 
-### Example
+### 示例
 
-To run this example:
+要运行这个示例:
 
-- Clone the [examples](https://github.com/alloy-rs/examples) repository: `git clone git@github.com:alloy-rs/examples.git`
-- Run: `cargo run --example recommended_fillers`
+- 克隆 [examples](https://github.com/alloy-rs/examples) 仓库: `git clone git@github.com:alloy-rs/examples.git`
+- 运行: `cargo run --example recommended_fillers`
 
 ```rust,ignore
 {{#include ../../../lib/examples/examples/fillers/examples/recommended_fillers.rs}}
 ```
 
-Find the source code on Github [here](https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620/examples/fillers/examples/recommended_fillers.rs).
+在 Github 上找到源代码 [here](https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620/examples/fillers/examples/recommended_fillers.rs).

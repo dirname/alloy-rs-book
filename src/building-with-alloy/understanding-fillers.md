@@ -1,6 +1,6 @@
-## Understanding `Fillers`
+## 理解 `Fillers`
 
-[Fillers](https://docs.rs/alloy/latest/alloy/providers/fillers/index.html) decorate a [`Provider`](https://docs.rs/alloy/latest/alloy/providers/trait.Provider.html), filling transaction details before they are sent to the network. Fillers are used to set the nonce, gas price, gas limit, and other transaction details, and are called before any other layer.
+[Fillers](https://docs.rs/alloy/latest/alloy/providers/fillers/index.html) 装饰了一个 [`Provider`](https://docs.rs/alloy/latest/alloy/providers/trait.Provider.html)，在交易发送到网络之前填充交易细节。Fillers 用于设置 nonce、gas 价格、gas 限制和其他交易细节，它们在任何其他层调用之前被调用。
 
 {{#include ../examples/fillers/recommended_fillers.md}}
 

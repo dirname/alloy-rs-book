@@ -1,5 +1,5 @@
 ## Queries
 
-- [Query contract storage](query_contract_storage.md)
-- [Query contract deployed bytecode](query_deployed_bytecode.md)
-- [Query logs](query_logs.md)
+- [查询合约存储](query_contract_storage.md)
+- [查询合约已部署的字节码](query_deployed_bytecode.md)
+- [查询日志](query_logs.md)

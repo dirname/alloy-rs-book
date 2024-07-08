@@ -3,17 +3,17 @@
 <!-- EDIT OR CREATE THIS TEMPLATE INSTEAD: ./src/templates/wallets/ledger_signer.md -->
 <!-- LATEST UPDATE: https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620 -->
 
-## Example: `ledger_signer`
+## 示例：`ledger_signer`
 
-### Example
+### 示例
 
-To run this example:
+要运行此示例：
 
-- Clone the [examples](https://github.com/alloy-rs/examples) repository: `git clone git@github.com:alloy-rs/examples.git`
-- Run: `cargo run --example ledger_signer`
+- 克隆 [examples](https://github.com/alloy-rs/examples) 仓库：`git clone git@github.com:alloy-rs/examples.git`
+- 运行：`cargo run --example ledger_signer`
 
 ```rust,ignore
 {{#include ../../../lib/examples/examples/wallets/examples/ledger_signer.rs}}
 ```
 
-Find the source code on Github [here](https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620/examples/wallets/examples/ledger_signer.rs).
+在 Github 上可以找到源代码 [here](https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620/examples/wallets/examples/ledger_signer.rs)。

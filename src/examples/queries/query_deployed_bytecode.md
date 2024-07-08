@@ -3,17 +3,17 @@
 <!-- EDIT OR CREATE THIS TEMPLATE INSTEAD: ./src/templates/queries/query_deployed_bytecode.md -->
 <!-- LATEST UPDATE: https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620 -->
 
-## Example: `query_deployed_bytecode`
+## 示例：`query_deployed_bytecode`
 
-### Example
+### 示例
 
-To run this example:
+运行此示例:
 
-- Clone the [examples](https://github.com/alloy-rs/examples) repository: `git clone git@github.com:alloy-rs/examples.git`
-- Run: `cargo run --example query_deployed_bytecode`
+- 克隆 [examples](https://github.com/alloy-rs/examples) 仓库: `git clone git@github.com:alloy-rs/examples.git`
+- 运行: `cargo run --example query_deployed_bytecode`
 
 ```rust,ignore
 {{#include ../../../lib/examples/examples/queries/examples/query_deployed_bytecode.rs}}
 ```
 
-Find the source code on Github [here](https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620/examples/queries/examples/query_deployed_bytecode.rs).
+在 Github 上找到源代码 [here](https://github.com/alloy-rs/examples/tree/6ac6ececdbfb33142c128f21df07cd0e92a96620/examples/queries/examples/query_deployed_bytecode.rs).
